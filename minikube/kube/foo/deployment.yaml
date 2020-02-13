@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-foo-app
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: kube-foo-app
+  template:
+    metadata:
+      labels:
+        app: kube-foo-app
+    spec:
+      containers:
+        - name: kube-foo-app
+          image: vlukyane/minikube_try:firsttry
+          ports:
+            - containerPort: 3003
+              protocol: TCP
